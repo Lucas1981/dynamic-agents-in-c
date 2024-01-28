@@ -7,7 +7,3 @@ Again, all of it is arrived at with the help of ChatGPT 4 which is both great at
 I also add a sound queue, that stages sounds to be played and then at the end of the loop plays all the sounds that were staged during the loop - I like that pattern which doesn't interrupt the ongoing loop by already starting to play the sounds. I got that from the book Game Programming Patterns by Robert Nystrom.
 
 I also hope to "skin" the game differently from the wireframe like stick figures I now use as placeholders. I have an idea for what the game could be like, but I'll still need to flesh that out. That will probably be another repository though.
-
-Todo list:
-- Add the logic for the title and pause screens.
-- Tweak movement boundary and player speed
