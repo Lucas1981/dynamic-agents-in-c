@@ -1,5 +1,7 @@
 # Dynamic Agents in C
 
+<img width="797" alt="Screenshot 2024-01-28 at 14 14 33" src="https://github.com/Lucas1981/dynamic-agents-in-c/assets/9882904/721b67b3-61f9-4d45-89eb-a0f2b5e0279f">
+
 So, this was a problem I always tried to solve as a kid but could never get straight. I wanted a way to add agents to a game dynamically rather than have a number of agents specified up front. Especially bullets were agents I wanted to add to games. I think I would actually use linked lists in the end, I've done that in the past. But this idea of using a pool was fun to explore, so I went with that.
 
 Again, all of it is arrived at with the help of ChatGPT 4 which is both great at explaining concepts and providing code that illustrates it, as well as providing boiler-plate code for a lot of these things. In contrast to my previous attempts to write game code in C, this has the agents pool and uses a single image to get the right animation frames.
