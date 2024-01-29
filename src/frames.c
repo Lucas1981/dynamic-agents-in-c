@@ -13,8 +13,8 @@
 static Frame globalFrames[MAX_FRAMES];  // MAX_FRAMES is a defined constant
 
 // Function to provide access to the global frames
-Spritesheet* sheet;
-SDL_Renderer* renderer;
+static Spritesheet* sheet;
+static SDL_Renderer* renderer;
 
 Frame* get_frames() { return globalFrames; }
 

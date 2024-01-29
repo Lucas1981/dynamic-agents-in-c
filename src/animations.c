@@ -11,7 +11,7 @@
 // Static array of animations
 static Animation animations[NUM_ANIMATIONS];
 static Frame* frames;
-Spritesheet* sheet;
+static Spritesheet* sheet;
 
 static int enemyWalkingFrameIndices[] = {2, 6};
 static int playerStandingFrameIndices[] = {0};
