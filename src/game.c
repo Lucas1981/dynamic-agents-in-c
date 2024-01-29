@@ -165,28 +165,26 @@ static void cleanup_game() {
 static void handleTitleState() {
   const GlobalGameState* globalGameState = getGlobalGameState();
   KeyState* keyState = get_key_state();
+  draw_screen(TITLE_SCREEN);
+  print_user_interface_with_outline("Press enter to start", HALF_SCREEN_WIDTH,
+                                    500, TEXT_ALIGN_CENTER);
   if (keyState->enter) {
     reset_game();
-  } else {
-    draw_screen(TITLE_SCREEN);
-    print_user_interface_with_outline("Press enter to start", HALF_SCREEN_WIDTH,
-                                      500, TEXT_ALIGN_CENTER);
   }
 }
 
 static void handleReadyState() {
   const GlobalGameState* globalGameState = getGlobalGameState();
   Uint32 now = get_now();
+  game_loop(0);
+  char buffer[64];
+  sprintf(buffer, "Level %i", globalGameState->level + 1);
+  print_user_interface_with_outline(buffer, HALF_SCREEN_WIDTH, 200,
+                                    TEXT_ALIGN_CENTER);
+  print_user_interface_with_outline("GET READY!", HALF_SCREEN_WIDTH, 220,
+                                    TEXT_ALIGN_CENTER);
   if (now - globalGameState->last_state_change > TIME_BETWEEN_STATES) {
     change_state(PLAYING);
-  } else {
-    game_loop(0);
-    char buffer[64];
-    sprintf(buffer, "Level %i", globalGameState->level + 1);
-    print_user_interface_with_outline(buffer, HALF_SCREEN_WIDTH, 200,
-                                      TEXT_ALIGN_CENTER);
-    print_user_interface_with_outline("GET READY!", HALF_SCREEN_WIDTH, 220,
-                                      TEXT_ALIGN_CENTER);
   }
 }
 
@@ -195,6 +193,9 @@ static void handlePlayingState() { game_loop(1); }
 static void handleDeadState() {
   const GlobalGameState* globalGameState = getGlobalGameState();
   Uint32 now = get_now();
+  game_loop(0);
+  print_user_interface_with_outline("YOU DIED!", HALF_SCREEN_WIDTH, 200,
+                                    TEXT_ALIGN_CENTER);
   if (now - globalGameState->last_state_change > TIME_BETWEEN_STATES) {
     decrease_lives();
     if (globalGameState->number_of_lives == 0) {
@@ -202,27 +203,25 @@ static void handleDeadState() {
     } else {
       reset_stage();
     }
-  } else {
-    game_loop(0);
-    print_user_interface_with_outline("YOU DIED!", HALF_SCREEN_WIDTH, 200,
-                                      TEXT_ALIGN_CENTER);
   }
 }
 
 static void handleGameOverState() {
   const GlobalGameState* globalGameState = getGlobalGameState();
   Uint32 now = get_now();
+  print_user_interface_with_outline("GAME OVER", HALF_SCREEN_WIDTH, 200,
+                                    TEXT_ALIGN_CENTER);
   if (now - globalGameState->last_state_change > TIME_BETWEEN_STATES) {
     change_state(TITLE);
-  } else {
-    print_user_interface_with_outline("GAME OVER", HALF_SCREEN_WIDTH, 200,
-                                      TEXT_ALIGN_CENTER);
   }
 }
 
 static void handleWonState() {
   const GlobalGameState* globalGameState = getGlobalGameState();
   Uint32 now = get_now();
+  game_loop(0);
+  print_user_interface_with_outline("YOU WON!", HALF_SCREEN_WIDTH, 200,
+                                    TEXT_ALIGN_CENTER);
   if (now - globalGameState->last_state_change > TIME_BETWEEN_STATES) {
     increase_level();
     if (globalGameState->level > FINAL_LEVEL) {
@@ -230,21 +229,16 @@ static void handleWonState() {
     } else {
       reset_stage();
     }
-  } else {
-    game_loop(0);
-    print_user_interface_with_outline("YOU WON!", HALF_SCREEN_WIDTH, 200,
-                                      TEXT_ALIGN_CENTER);
   }
 }
 
 static void handleFinishedState() {
   const GlobalGameState* globalGameState = getGlobalGameState();
   Uint32 now = get_now();
+  print_user_interface_with_outline("YOU FINISHED THE GAME!", HALF_SCREEN_WIDTH,
+                                    200, TEXT_ALIGN_CENTER);
   if (now - globalGameState->last_state_change > TIME_BETWEEN_STATES) {
     change_state(TITLE);
-  } else {
-    print_user_interface_with_outline(
-        "YOU FINISHED THE GAME!", HALF_SCREEN_WIDTH, 200, TEXT_ALIGN_CENTER);
   }
 }
 
