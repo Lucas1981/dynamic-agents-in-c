@@ -1,5 +1,6 @@
 #include "state_handlers.h"
 
+#include "agent.h"
 #include "agent_pool.h"
 #include "clock.h"
 #include "global_state.h"
@@ -112,7 +113,10 @@ static void reset_stage() {
   reset_pool();
   const GlobalGameState* global_game_state = getGlobalGameState();
   int level = global_game_state->level;
-  addAgent(400.00, 500.00, PLAYER, PLAYER_STANDING, &player_progress, 0);
+  Hitbox* player_hitbox = get_player_hitbox();
+  int half_player_width = player_hitbox->width / 2;
+  addAgent(HALF_SCREEN_WIDTH - player_hitbox->x - half_player_width, 500.00,
+           PLAYER, PLAYER_STANDING, &player_progress, 0);
   initiate_level(levels[level].target, levels[level].enemies_speed,
                  levels[level].enemies_spawning_speed);
   change_state(READY);

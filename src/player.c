@@ -15,10 +15,19 @@
 #define WIDTH 640
 #define SHOT_THRESHOLD 300
 #define HALF_PLAYER_HEIGHT 32
+#define PLAYER_OFFSET_X 16
+#define PLAYER_OFFSET_Y 0
+#define PLAYER_WIDTH 32
+#define PLAYER_HEIGHT 64
 
 // Uint32 last_time = 0;
 static SDL_Event event;
 static int last_shot = 0;
+
+static Hitbox player_hitbox = {PLAYER_OFFSET_X, PLAYER_OFFSET_Y, PLAYER_WIDTH,
+                               PLAYER_HEIGHT};
+
+Hitbox *get_player_hitbox() { return &player_hitbox; }
 
 void player_progress(Agent *player) {
   Uint32 elapsed_time = get_elapsed_time();
