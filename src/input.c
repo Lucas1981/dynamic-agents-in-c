@@ -2,11 +2,21 @@
 
 #include <SDL.h>
 
-static KeyState keyState = {0, 0, 0, 0};
+static KeyState keyState = {0, 0, 0, 0, 0};
+static void handle_input(SDL_Event event);
+static int quit = 0;
 
 KeyState *get_key_state() { return &keyState; }
+int get_quit() { return quit; }
 
-void handle_input(SDL_Event event) {
+void handle_inputs() {
+  SDL_Event event;
+  while (SDL_PollEvent(&event)) {
+    handle_input(event);
+  }
+}
+
+static void handle_input(SDL_Event event) {
   if (event.type == SDL_KEYDOWN) {
     switch (event.key.keysym.sym) {
       case SDLK_LEFT:
@@ -21,6 +31,8 @@ void handle_input(SDL_Event event) {
       case SDLK_RETURN:
         keyState.enter = 1;
         break;
+      case SDLK_ESCAPE:
+        keyState.escape = 1;
     }
   } else if (event.type == SDL_KEYUP) {
     switch (event.key.keysym.sym) {
@@ -36,6 +48,10 @@ void handle_input(SDL_Event event) {
       case SDLK_RETURN:
         keyState.enter = 0;
         break;
+      case SDLK_ESCAPE:
+        keyState.escape = 0;
     }
+  } else if (event.type == SDL_QUIT) {
+    quit = 1;
   }
 }

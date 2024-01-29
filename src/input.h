@@ -9,9 +9,11 @@ typedef struct {
   int right;
   int space;
   int enter;
+  int escape;
 } KeyState;
 
 KeyState *get_key_state();
-void handle_input(SDL_Event event);
+void handle_inputs();
+int get_quit();
 
 #endif
