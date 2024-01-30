@@ -37,12 +37,12 @@ typedef struct {
 void reset_game_state(void);
 void increase_level(void);
 void decrease_lives(void);
-void set_game_state(GameState newState);
+void set_game_state(GameState new_state);
 void initiate_level(int enemies_target, int enemies_speed,
-                    int enemies_spawning_speed);
+                    Uint32 enemies_spawning_speed);
 void increase_enemies_killed(void);
 void increase_enemies_issued(void);
-void change_state(GameState newState);
+void change_state(GameState new_state);
 const GlobalGameState* get_global_game_state(void);
 
 #endif  // GLOBAL_STATE_H

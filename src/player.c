@@ -21,7 +21,7 @@
 #define PLAYER_HEIGHT 64
 
 // Uint32 last_time = 0;
-static int last_shot = 0;
+static Uint32 last_shot = 0;
 
 static Hitbox player_hitbox = {PLAYER_OFFSET_X, PLAYER_OFFSET_Y, PLAYER_WIDTH,
                                PLAYER_HEIGHT};

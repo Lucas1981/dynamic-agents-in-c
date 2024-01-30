@@ -35,12 +35,12 @@ static void check_and_handle_collision(Agent *source, Agent *target) {
     return;
   }
 
-  SDL_Rect enemy_box = {source->x + source->hitbox->x,
-                        source->y + source->hitbox->y, source->hitbox->width,
-                        source->hitbox->height};
-  SDL_Rect bullet_box = {target->x + target->hitbox->x,
-                         target->y + target->hitbox->y, target->hitbox->width,
-                         target->hitbox->height};
+  SDL_Rect enemy_box = {(int)source->x + source->hitbox->x,
+                        (int)source->y + source->hitbox->y,
+                        source->hitbox->width, source->hitbox->height};
+  SDL_Rect bullet_box = {(int)target->x + target->hitbox->x,
+                         (int)target->y + target->hitbox->y,
+                         target->hitbox->width, target->hitbox->height};
 
   if (SDL_HasIntersection(&enemy_box, &bullet_box)) {
     handle_intersection(source, target);

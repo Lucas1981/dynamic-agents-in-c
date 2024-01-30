@@ -15,12 +15,12 @@ void reset_game_state(void) {
   global_game_state.level = 0;
 }
 
-void set_game_state(GameState newState) {
-  global_game_state.current_state = newState;
+void set_game_state(GameState new_state) {
+  global_game_state.current_state = new_state;
 }
 
 void initiate_level(int enemies_target, int enemies_speed,
-                    int enemies_spawning_speed) {
+                    Uint32 enemies_spawning_speed) {
   global_game_state.enemies.target = enemies_target;
   global_game_state.enemies.killed = 0;
   global_game_state.enemies.issued = 0;
@@ -28,8 +28,8 @@ void initiate_level(int enemies_target, int enemies_speed,
   global_game_state.enemies.speed = enemies_speed;
 }
 
-void change_state(GameState newState) {
-  global_game_state.current_state = newState;
+void change_state(GameState new_state) {
+  global_game_state.current_state = new_state;
   global_game_state.last_state_change = get_now();
 }
 

@@ -41,7 +41,7 @@ void draw_agent(Agent* agent) {
   Uint32 current_time = SDL_GetTicks();
   Animation animation = animations[agent->animation_type];
   Uint32 elapsed_time = current_time - agent->start_time;
-  int animation_frame_index =
+  Uint32 animation_frame_index =
       (elapsed_time / FRAME_DURATION) % animation.num_frames;
   int frame_index = animation.frame_indices[animation_frame_index];
   Frame frame = frames[frame_index];
