@@ -3,7 +3,7 @@
 
 CC=gcc
 # Use sdl2-config to set the compiler and linker flags for SDL2
-CFLAGS=$(shell sdl2-config --cflags) -Wall -Wextra -Werror -Wshadow -Wstrict-prototypes
+CFLAGS=$(shell sdl2-config --cflags) -Wall -Wextra -Werror -Wshadow -Wstrict-prototypes -pedantic
 LDFLAGS=$(shell sdl2-config --libs)
 
 # Add SDL2_image flags

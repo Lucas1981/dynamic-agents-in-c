@@ -38,7 +38,7 @@ void print_user_interface_with_outline(
     return;
   }
 
-  SDL_Color outline_color = {80, 80, 80};  // Dark gray outline
+  SDL_Color outline_color = {80, 80, 80, 255};  // Dark gray outline
   int outline_size = 2;
 
   // Set the font outline
@@ -72,7 +72,7 @@ void print_user_interface(const char* string, int x, int y,
     return;
   }
 
-  SDL_Color text_color = {255, 255, 255};  // White color
+  SDL_Color text_color = {255, 255, 255, 255};  // White color
 
   // Create texture from string
   SDL_Texture* text_texture = create_text_texture(string, text_color);
