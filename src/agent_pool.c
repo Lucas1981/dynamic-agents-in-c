@@ -10,7 +10,7 @@
 
 static AgentEntity pool[POOL_SIZE];
 
-void init_agent_pool() {
+void init_agent_pool(void) {
   for (int i = 0; i < POOL_SIZE; i++) {
     pool[i].agent = (Agent){0, 0, 0, 0, 0,
                             0, 0, 0, 0, 0};  // Initialize with default values
@@ -38,12 +38,12 @@ void deactivate_agent(int index) {
   }
 }
 
-void reset_pool() {
+void reset_pool(void) {
   for (int i = 0; i < POOL_SIZE; i++) {
     pool[i].active = 0;
   }
 }
 
-AgentEntity* get_pool() { return pool; }
+AgentEntity* get_pool(void) { return pool; }
 
-int get_pool_size() { return POOL_SIZE; }
+int get_pool_size(void) { return POOL_SIZE; }

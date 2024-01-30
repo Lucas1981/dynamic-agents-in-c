@@ -9,7 +9,7 @@
 // Array to hold screen textures
 static SDL_Texture* screens[NUM_SCREENS] = {NULL};
 
-void load_screens() {
+void load_screens(void) {
   SDL_Renderer* renderer = get_renderer();
   const char* screen_files[NUM_SCREENS] = {"./assets/images/title-screen.png",
                                            "./assets/images/level.png"};
@@ -42,7 +42,7 @@ void draw_screen(SCREEN_TYPE type) {
   SDL_RenderCopy(renderer, screen, NULL, NULL);
 }
 
-void cleanup_screens() {
+void cleanup_screens(void) {
   for (int i = 0; i < NUM_SCREENS; i++) {
     if (screens[i]) {
       SDL_DestroyTexture(screens[i]);

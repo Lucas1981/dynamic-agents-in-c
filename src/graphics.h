@@ -3,18 +3,11 @@
 
 #include <SDL.h>
 
-// Initializes the graphics system, including creating the window
 int init_graphics(int width, int height);
-
-// Cleans up the graphics system
-void cleanup_graphics();
-
-// Draws a red rectangle
+void cleanup_graphics(void);
 void draw_red_rectangle(int x, int y, int width, int height);
+void render_graphics(void);
 
-// Renders the current frame
-void render_graphics();
-
-SDL_Renderer* get_renderer();
+SDL_Renderer* get_renderer(void);
 
 #endif  // GRAPHICS_H

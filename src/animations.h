@@ -6,7 +6,6 @@
 // Forward declaration of Agent
 struct Agent;
 
-// Enum for animation types
 typedef enum {
   ENEMY_WALKING,
   ENEMY_DYING,
@@ -16,21 +15,14 @@ typedef enum {
   NUM_ANIMATIONS  // Always keep this last
 } AnimationType;
 
-// Animation structure
 typedef struct Animation {
   int* frameIndices;  // Array of frame indices
   int numFrames;      // Number of frames in the animation
 } Animation;
 
-// Function to initialize all animations
-void init_animations();
-
+void init_animations(void);
 void draw(struct Agent* agent);
-
-// Function to get an animation by type
 Animation* get_animation(AnimationType type);
-
-// Function to clean up animations
-void cleanup_animations();
+void cleanup_animations(void);
 
 #endif  // ANIMATIONS_H

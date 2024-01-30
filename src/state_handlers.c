@@ -22,10 +22,10 @@ static Level levels[4] = {
     {25, 300, 800}    // Level 4: 25 enemies, speed 300, spawn every 700 ms
 };
 
-static void reset_stage();
-static void reset_game();
+static void reset_stage(void);
+static void reset_game(void);
 
-void handle_title_state() {
+void handle_title_state(void) {
   const GlobalGameState* global_game_state = get_global_game_state();
   KeyState* key_state = get_key_state();
   draw_screen(TITLE_SCREEN);
@@ -36,7 +36,7 @@ void handle_title_state() {
   }
 }
 
-void handle_ready_state() {
+void handle_ready_state(void) {
   const GlobalGameState* global_game_state = get_global_game_state();
   Uint32 now = get_now();
   game_loop(0);
@@ -51,9 +51,9 @@ void handle_ready_state() {
   }
 }
 
-void handle_playing_state() { game_loop(1); }
+void handle_playing_state(void) { game_loop(1); }
 
-void handle_dead_state() {
+void handle_dead_state(void) {
   const GlobalGameState* global_game_state = get_global_game_state();
   Uint32 now = get_now();
   game_loop(0);
@@ -69,7 +69,7 @@ void handle_dead_state() {
   }
 }
 
-void handle_game_over_state() {
+void handle_game_over_state(void) {
   const GlobalGameState* global_game_state = get_global_game_state();
   Uint32 now = get_now();
   print_user_interface_with_outline("GAME OVER", HALF_SCREEN_WIDTH, 200,
@@ -79,7 +79,7 @@ void handle_game_over_state() {
   }
 }
 
-void handle_won_state() {
+void handle_won_state(void) {
   const GlobalGameState* global_game_state = get_global_game_state();
   Uint32 now = get_now();
   game_loop(0);
@@ -95,7 +95,7 @@ void handle_won_state() {
   }
 }
 
-void handle_finished_state() {
+void handle_finished_state(void) {
   const GlobalGameState* global_game_state = get_global_game_state();
   Uint32 now = get_now();
   print_user_interface_with_outline("YOU FINISHED THE GAME!", HALF_SCREEN_WIDTH,
@@ -105,24 +105,24 @@ void handle_finished_state() {
   }
 }
 
-void handle_pause_state() {
+void handle_pause_state(void) {
   // Code for PAUSE state
 }
 
-static void reset_stage() {
+static void reset_stage(void) {
   reset_pool();
   const GlobalGameState* global_game_state = get_global_game_state();
   int level = global_game_state->level;
   Hitbox* player_hitbox = get_player_hitbox();
   int half_player_width = player_hitbox->width / 2;
   add_agent(HALF_SCREEN_WIDTH - player_hitbox->x - half_player_width, 500.00,
-           PLAYER, PLAYER_STANDING, &player_progress, 0);
+            PLAYER, PLAYER_STANDING, &player_progress, 0);
   initiate_level(levels[level].target, levels[level].enemies_speed,
                  levels[level].enemies_spawning_speed);
   change_state(READY);
 }
 
-static void reset_game() {
+static void reset_game(void) {
   reset_game_state();
   reset_stage();
 }

@@ -6,10 +6,10 @@ static KeyState key_state = {0, 0, 0, 0, 0};
 static void handle_input(SDL_Event event);
 static int quit = 0;
 
-KeyState *get_key_state() { return &key_state; }
-int get_quit() { return quit; }
+KeyState *get_key_state(void) { return &key_state; }
+int get_quit(void) { return quit; }
 
-void handle_inputs() {
+void handle_inputs(void) {
   SDL_Event event;
   while (SDL_PollEvent(&event)) {
     handle_input(event);

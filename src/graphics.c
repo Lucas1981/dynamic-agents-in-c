@@ -28,7 +28,7 @@ int init_graphics(int width, int height) {
   return 0;
 }
 
-void cleanup_graphics() {
+void cleanup_graphics(void) {
   if (renderer) {
     SDL_DestroyRenderer(renderer);
   }
@@ -44,10 +44,10 @@ void draw_red_rectangle(int x, int y, int width, int height) {
   SDL_RenderFillRect(renderer, &rect);
 }
 
-void render_graphics() {
+void render_graphics(void) {
   SDL_RenderPresent(renderer);
   SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);  // Clear with black
   SDL_RenderClear(renderer);
 }
 
-SDL_Renderer* get_renderer() { return renderer; }
+SDL_Renderer* get_renderer(void) { return renderer; }

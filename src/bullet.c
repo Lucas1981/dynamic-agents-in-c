@@ -17,7 +17,7 @@ static Uint32 last_time = 0;
 static Hitbox bullet_hitbox = {BULLET_OFFSET_X, BULLET_OFFSET_Y, BULLET_WIDTH,
                                BULLET_HEIGHT};
 
-Hitbox *get_bullet_hitbox() { return &bullet_hitbox; }
+Hitbox *get_bullet_hitbox(void) { return &bullet_hitbox; }
 
 void bullet_progress(Agent *bullet) {
   int now = get_now();

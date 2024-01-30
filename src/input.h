@@ -12,8 +12,8 @@ typedef struct {
   int escape;
 } KeyState;
 
-KeyState *get_key_state();
-void handle_inputs();
-int get_quit();
+KeyState *get_key_state(void);
+void handle_inputs(void);
+int get_quit(void);
 
 #endif

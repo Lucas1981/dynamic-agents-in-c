@@ -11,7 +11,7 @@
 // Array to hold sound effect pointers
 static Mix_Chunk *sound_effects[NUM_SOUNDS];
 
-void init_sounds() {
+void init_sounds(void) {
   // Initialize SDL_mixer, set up channels, etc.
   if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
     printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n",
@@ -42,7 +42,7 @@ void play_sound(SoundEnum sound) {
   }
 }
 
-void cleanup_sounds() {
+void cleanup_sounds(void) {
   // Free sound effects
   for (int i = 0; i < NUM_SOUNDS; ++i) {
     if (sound_effects[i]) {

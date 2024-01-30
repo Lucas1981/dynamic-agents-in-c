@@ -6,9 +6,9 @@
 
 static GlobalGameState global_game_state;
 
-void increase_level() { global_game_state.level++; }
-void decrease_lives() { global_game_state.number_of_lives--; }
-void reset_game_state() {
+void increase_level(void) { global_game_state.level++; }
+void decrease_lives(void) { global_game_state.number_of_lives--; }
+void reset_game_state(void) {
   // Initialize state...
   global_game_state.last_state_change = get_now();
   global_game_state.number_of_lives = INITIAL_NUMBER_OF_LIVES;
@@ -18,8 +18,6 @@ void reset_game_state() {
 void set_game_state(GameState newState) {
   global_game_state.current_state = newState;
 }
-
-const GlobalGameState* get_global_game_state() { return &global_game_state; }
 
 void initiate_level(int enemies_target, int enemies_speed,
                     int enemies_spawning_speed) {
@@ -35,5 +33,8 @@ void change_state(GameState newState) {
   global_game_state.last_state_change = get_now();
 }
 
-void increase_enemies_killed() { global_game_state.enemies.killed++; }
-void increase_enemies_issued() { global_game_state.enemies.issued++; }
+void increase_enemies_killed(void) { global_game_state.enemies.killed++; }
+void increase_enemies_issued(void) { global_game_state.enemies.issued++; }
+const GlobalGameState* get_global_game_state(void) {
+  return &global_game_state;
+}

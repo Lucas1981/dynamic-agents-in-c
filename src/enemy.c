@@ -23,8 +23,6 @@ void kill_enemy(Agent *enemy) {
   enemy->start_time = get_now();
 }
 
-Hitbox *get_enemy_hitbox() { return &enemy_hitbox; }
-
 void enemy_progress(Agent *enemy) {
   if (enemy->animation_type == ENEMY_DYING) {
     int now = get_now();
@@ -42,3 +40,5 @@ void enemy_progress(Agent *enemy) {
                    elapsed_time;  // Floating point calculation
   enemy->y += movement;           // Add the movement to enemy->x
 }
+
+Hitbox *get_enemy_hitbox(void) { return &enemy_hitbox; }

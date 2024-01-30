@@ -19,7 +19,7 @@ static int playerWalkingFrameIndices[] = {4, 0, 5, 0};
 static int bulletFrameIndices[] = {7};
 static int enemyDyingIndices[] = {1};
 
-void init_animations() {
+void init_animations(void) {
   frames = get_frames();
 
   animations[ENEMY_WALKING].frameIndices = enemyWalkingFrameIndices;
@@ -56,7 +56,7 @@ Animation* get_animation(AnimationType type) {
   return &animations[type];
 }
 
-void cleanup_animations() {
+void cleanup_animations(void) {
   // Cleanup code here, if necessary.
   // This depends on how frames are allocated and managed.
 }

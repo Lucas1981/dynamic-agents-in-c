@@ -18,10 +18,10 @@
 static Spritesheet* sheet;
 
 // Forward declarations
-static void init_game();
-static void cleanup_game();
+static void init_game(void);
+static void cleanup_game(void);
 
-void run_game() {
+void run_game(void) {
   KeyState* key_state = get_key_state();
 
   init_game();
@@ -67,7 +67,7 @@ void run_game() {
   printf("Goodbye!\n");
 }
 
-static void init_game() {
+static void init_game(void) {
   printf("Starting initiation.\n");
   // Initialization code here
   if (init_graphics(SCREEN_WIDTH, SCREEN_HEIGHT) != 0) {  // Window size 800x600
@@ -95,7 +95,7 @@ static void init_game() {
   printf("Initiation complete.\n\n");
 }
 
-static void cleanup_game() {
+static void cleanup_game(void) {
   printf("Cleaning up...\n");
   // Cleanup code here, run in reverse order as initiation
   cleanup_screens();

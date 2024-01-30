@@ -13,7 +13,7 @@ static void check_and_handle_collision(AgentEntity *sourceEntity,
                                        AgentEntity *targetEntity);
 static void handle_intersection(Agent *source, Agent *target);
 
-void detect_collision() {
+void detect_collision(void) {
   AgentEntity *pool = get_pool();
   int pool_size = get_pool_size();
 

@@ -22,11 +22,11 @@ static Uint32 enemy_generation_timer = 0;
 
 // Forward declarations
 static void attempt_enemy_generation(const GlobalGameState *global_game_state);
-static void update_agents();
+static void update_agents(void);
 static void handle_intersection(Agent *source, Agent *target);
 static void check_and_handle_collision(AgentEntity *sourceEntity,
                                        AgentEntity *targetEntity);
-static void draw_agents();
+static void draw_agents(void);
 static void check_stage(const GlobalGameState *global_game_state);
 static void handle_user_interface(const GlobalGameState *global_game_state);
 
@@ -70,7 +70,7 @@ static void attempt_enemy_generation(const GlobalGameState *global_game_state) {
   }
 }
 
-static void update_agents() {
+static void update_agents(void) {
   AgentEntity *pool = get_pool();
 
   for (int i = 0; i < get_pool_size(); i++) {
@@ -82,7 +82,7 @@ static void update_agents() {
   }
 }
 
-static void draw_agents() {
+static void draw_agents(void) {
   AgentEntity *pool = get_pool();
 
   for (int i = 0; i < get_pool_size(); i++) {

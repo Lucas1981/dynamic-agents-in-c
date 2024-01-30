@@ -4,6 +4,6 @@
 #include "agent.h"
 
 void player_progress(Agent *enemy);
-Hitbox *get_player_hitbox();
+Hitbox *get_player_hitbox(void);
 
 #endif

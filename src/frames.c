@@ -16,7 +16,7 @@ static Frame global_frames[MAX_FRAMES];  // MAX_FRAMES is a defined constant
 static Spritesheet* sheet;
 static SDL_Renderer* renderer;
 
-Frame* get_frames() { return global_frames; }
+Frame* get_frames(void) { return global_frames; }
 
 void init_frames(Spritesheet* spritesheet) {
   sheet = spritesheet;
@@ -41,4 +41,4 @@ void draw_frame(int x, int y, Frame* frame) {
   SDL_RenderCopy(renderer, sheet->texture, &src_rect, &dest_rect);
 }
 
-void cleanup_frames() {}
+void cleanup_frames(void) {}

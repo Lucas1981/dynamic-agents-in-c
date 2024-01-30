@@ -27,7 +27,7 @@ static int last_shot = 0;
 static Hitbox player_hitbox = {PLAYER_OFFSET_X, PLAYER_OFFSET_Y, PLAYER_WIDTH,
                                PLAYER_HEIGHT};
 
-Hitbox *get_player_hitbox() { return &player_hitbox; }
+Hitbox *get_player_hitbox(void) { return &player_hitbox; }
 
 void player_progress(Agent *player) {
   Uint32 elapsed_time = get_elapsed_time();
@@ -56,10 +56,11 @@ void player_progress(Agent *player) {
     player->start_time = now;
   }
 
-  if (key_state->space && (last_shot == 0 || now - last_shot > SHOT_THRESHOLD)) {
+  if (key_state->space &&
+      (last_shot == 0 || now - last_shot > SHOT_THRESHOLD)) {
     Hitbox *bullet_hitbox = get_bullet_hitbox();
     add_agent(player->x, player->y - HALF_PLAYER_HEIGHT, BULLET,
-             BULLET_ANIMATION, &bullet_progress, bullet_hitbox);
+              BULLET_ANIMATION, &bullet_progress, bullet_hitbox);
     stage_sound(GUNSHOT);
     last_shot = now;
   }

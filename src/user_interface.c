@@ -12,7 +12,7 @@ static int calculate_render_x(int x, TextAlignment alignment, int text_width);
 static void render_text(SDL_Texture* texture, int x, int y, int width,
                         int height);
 
-void initiate_user_interface() {
+void initiate_user_interface(void) {
   renderer = get_renderer();  // Assuming get_renderer() is defined elsewhere
 
   // Initialize SDL_ttf
@@ -89,7 +89,7 @@ void print_user_interface(const char* string, int x, int y,
   SDL_DestroyTexture(text_texture);
 }
 
-void cleanup_user_interface() {
+void cleanup_user_interface(void) {
   if (font) {
     TTF_CloseFont(font);
     font = NULL;

@@ -3,16 +3,9 @@
 
 #include "sound.h"
 
-// Function to initialize the sound queue
-void init_sound_queue();
-
-// Function to stage a sound in the queue
+void init_sound_queue(void);
 void stage_sound(SoundEnum sound);
+void play_and_empty_queue(void);
+void cleanup_sound_queue(void);
 
-// Function to play all staged sounds and empty the queue
-void play_and_empty_queue();
-
-// Function to cleanup the sound queue
-void cleanup_sound_queue();
-
-#endif // SOUND_QUEUE_H
+#endif  // SOUND_QUEUE_H
