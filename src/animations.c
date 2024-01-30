@@ -19,7 +19,7 @@ static int playerWalkingFrameIndices[] = {4, 0, 5, 0};
 static int bulletFrameIndices[] = {7};
 static int enemyDyingIndices[] = {1};
 
-void initAnimations() {
+void init_animations() {
   frames = get_frames();
 
   animations[ENEMY_WALKING].frameIndices = enemyWalkingFrameIndices;
@@ -40,23 +40,23 @@ void initAnimations() {
 
 void draw(Agent* agent) {
   Uint32 current_time = SDL_GetTicks();
-  Animation animation = animations[agent->animationType];
+  Animation animation = animations[agent->animation_type];
   Uint32 elapsed_time = current_time - agent->start_time;
   int animationFrameIndex =
       (elapsed_time / FRAME_DURATION) % animation.numFrames;
   int frameIndex = animation.frameIndices[animationFrameIndex];
   Frame frame = frames[frameIndex];
-  drawFrame((int)agent->x, (int)agent->y, &frame);
+  draw_frame((int)agent->x, (int)agent->y, &frame);
 }
 
-Animation* getAnimation(AnimationType type) {
+Animation* get_animation(AnimationType type) {
   if (type < 0 || type >= NUM_ANIMATIONS) {
     return NULL;
   }
   return &animations[type];
 }
 
-void cleanupAnimations() {
+void cleanup_animations() {
   // Cleanup code here, if necessary.
   // This depends on how frames are allocated and managed.
 }

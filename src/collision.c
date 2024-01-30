@@ -59,5 +59,5 @@ static void check_and_handle_collision(AgentEntity *sourceEntity,
 static void handle_intersection(Agent *source, Agent *target) {
   kill_enemy(source);
   stage_sound(SCREAM);
-  deactivateAgent(target->index);
+  deactivate_agent(target->index);
 }

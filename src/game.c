@@ -22,40 +22,40 @@ static void init_game();
 static void cleanup_game();
 
 void run_game() {
-  KeyState* keyState = get_key_state();
+  KeyState* key_state = get_key_state();
 
   init_game();
   srand((unsigned int)time(NULL));
 
-  while (!keyState->escape && !get_quit()) {
+  while (!key_state->escape && !get_quit()) {
     set_time();
     Uint32 now = get_now();
     handle_inputs();
-    const GlobalGameState* globalGameState = getGlobalGameState();
-    switch (globalGameState->currentState) {
+    const GlobalGameState* global_game_state = get_global_game_state();
+    switch (global_game_state->current_state) {
       case TITLE:
-        handleTitleState();
+        handle_title_state();
         break;
       case READY:
-        handleReadyState();
+        handle_ready_state();
         break;
       case PLAYING:
-        handlePlayingState();
+        handle_playing_state();
         break;
       case DEAD:
-        handleDeadState();
+        handle_dead_state();
         break;
       case GAME_OVER:
-        handleGameOverState();
+        handle_game_over_state();
         break;
       case WON:
-        handleWonState();
+        handle_won_state();
         break;
       case FINISHED:
-        handleFinishedState();
+        handle_finished_state();
         break;
       case PAUSE:
-        handlePauseState();
+        handle_pause_state();
         break;
     }
 
@@ -76,21 +76,21 @@ static void init_game() {
   printf("Graphics done.\n");
   SDL_Renderer* renderer = get_renderer();
   printf("Renderer done.\n");
-  sheet = loadSpritesheet("./assets/images/spritesheet.png", renderer, 64, 64);
+  sheet = load_spritesheet("./assets/images/spritesheet.png", renderer, 64, 64);
   printf("Spritesheet done.\n");
-  initFrames(sheet);
+  init_frames(sheet);
   printf("Frames done.\n");
-  initAnimations();
+  init_animations();
   printf("Animations done.\n");
   init_sounds();
   init_sound_queue();
   printf("Sound initiation done\n");
   initiate_user_interface();
   printf("User interface initiation done\n");
-  initAgentPool();
+  init_agent_pool();
   printf("Loading screens\n");
   load_screens();
-  setGameState(TITLE);
+  set_game_state(TITLE);
   set_time();
   printf("Initiation complete.\n\n");
 }
@@ -102,9 +102,9 @@ static void cleanup_game() {
   cleanup_user_interface();
   cleanup_sound_queue();
   cleanup_sounds();
-  cleanupAnimations();
-  cleanupFrames();
-  freeSpritesheet(sheet);
+  cleanup_animations();
+  cleanup_frames();
+  free_spritesheet(sheet);
   cleanup_graphics();
   printf("Cleanup done.\n");
 }

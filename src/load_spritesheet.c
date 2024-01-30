@@ -4,8 +4,8 @@
 #include <SDL_image.h>
 #include <stdio.h>
 
-Spritesheet* loadSpritesheet(const char* filename, SDL_Renderer* renderer,
-                             int spriteWidth, int spriteHeight) {
+Spritesheet* load_spritesheet(const char* filename, SDL_Renderer* renderer,
+                              int sprite_width, int sprite_height) {
   // Load the image into an SDL_Surface
   SDL_Surface* tempSurface = IMG_Load(filename);
   if (tempSurface == NULL) {
@@ -31,7 +31,7 @@ Spritesheet* loadSpritesheet(const char* filename, SDL_Renderer* renderer,
   SDL_FreeSurface(tempSurface);
 
   // Calculate number of sprites
-  int numSprites = (width / spriteWidth) * (height / spriteHeight);
+  int num_sprites = (width / sprite_width) * (height / sprite_height);
 
   // Allocate memory for the spritesheet struct
   Spritesheet* sheet = (Spritesheet*)malloc(sizeof(Spritesheet));
@@ -43,14 +43,14 @@ Spritesheet* loadSpritesheet(const char* filename, SDL_Renderer* renderer,
 
   // Set the values
   sheet->texture = texture;
-  sheet->spriteWidth = spriteWidth;
-  sheet->spriteHeight = spriteHeight;
-  sheet->numSprites = numSprites;
+  sheet->sprite_width = sprite_width;
+  sheet->sprite_height = sprite_height;
+  sheet->num_sprites = num_sprites;
 
   return sheet;
 }
 
-void freeSpritesheet(Spritesheet* sheet) {
+void free_spritesheet(Spritesheet* sheet) {
   if (sheet != NULL) {
     if (sheet->texture != NULL) {
       SDL_DestroyTexture(sheet->texture);

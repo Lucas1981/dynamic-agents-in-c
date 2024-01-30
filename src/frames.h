@@ -16,12 +16,12 @@ typedef struct Frame {
 Frame* get_frames();
 
 // Function to initialize frames
-void initFrames(Spritesheet* spritesheet);
+void init_frames(Spritesheet* spritesheet);
 
 // Function to draw a frame
-void drawFrame(int x, int y, Frame* frame);
+void draw_frame(int x, int y, Frame* frame);
 
 // Function to clean up frames
-void cleanupFrames();
+void cleanup_frames();
 
 #endif  // FRAMES_H

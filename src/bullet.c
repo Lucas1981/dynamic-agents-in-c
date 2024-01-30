@@ -22,7 +22,7 @@ Hitbox *get_bullet_hitbox() { return &bullet_hitbox; }
 void bullet_progress(Agent *bullet) {
   int now = get_now();
   if (now - bullet->creation_time > LIFESPAN) {
-    deactivateAgent(bullet->index);
+    deactivate_agent(bullet->index);
     return;
   }
 

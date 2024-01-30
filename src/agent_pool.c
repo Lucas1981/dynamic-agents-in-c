@@ -10,7 +10,7 @@
 
 static AgentEntity pool[POOL_SIZE];
 
-void initAgentPool() {
+void init_agent_pool() {
   for (int i = 0; i < POOL_SIZE; i++) {
     pool[i].agent = (Agent){0, 0, 0, 0, 0,
                             0, 0, 0, 0, 0};  // Initialize with default values
@@ -18,13 +18,13 @@ void initAgentPool() {
   }
 }
 
-int addAgent(float x, float y, AgentType type, AnimationType animationType,
-             ProgressFunction progress, Hitbox* hitbox) {
+int add_agent(float x, float y, AgentType type, AnimationType animation_type,
+              ProgressFunction progress, Hitbox* hitbox) {
   int now = get_now();
   for (int i = 0; i < POOL_SIZE; i++) {
     if (!pool[i].active) {
       pool[i].agent =
-          (Agent){x, y, type, animationType, now, now, progress, i, hitbox, 0};
+          (Agent){x, y, type, animation_type, now, now, progress, i, hitbox, 0};
       pool[i].active = 1;
       return i;  // Return the index where the agent was activated
     }
@@ -32,7 +32,7 @@ int addAgent(float x, float y, AgentType type, AnimationType animationType,
   return -1;  // No available spots
 }
 
-void deactivateAgent(int index) {
+void deactivate_agent(int index) {
   if (index >= 0 && index < POOL_SIZE) {
     pool[index].active = 0;
   }

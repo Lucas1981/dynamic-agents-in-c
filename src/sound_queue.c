@@ -6,23 +6,23 @@
 #define SOUND_QUEUE_SIZE 32
 
 // Sound queue
-static SoundEnum soundQueue[SOUND_QUEUE_SIZE];
-static int soundQueueCount = 0;
+static SoundEnum sound_queue[SOUND_QUEUE_SIZE];
+static int sound_queue_count = 0;
 
-void init_sound_queue() { soundQueueCount = 0; }
+void init_sound_queue() { sound_queue_count = 0; }
 
 void stage_sound(SoundEnum sound) {
-  if (soundQueueCount < SOUND_QUEUE_SIZE) {
-    soundQueue[soundQueueCount++] = sound;
+  if (sound_queue_count < SOUND_QUEUE_SIZE) {
+    sound_queue[sound_queue_count++] = sound;
   }
   // Optionally handle the case where the queue is full
 }
 
 void play_and_empty_queue() {
-  for (int i = 0; i < soundQueueCount; ++i) {
-    play_sound(soundQueue[i]);
+  for (int i = 0; i < sound_queue_count; ++i) {
+    play_sound(sound_queue[i]);
   }
-  soundQueueCount = 0;  // Reset the queue
+  sound_queue_count = 0;  // Reset the queue
 }
 
 void cleanup_sound_queue() {

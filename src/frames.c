@@ -10,35 +10,35 @@
 #define FRAMES_PER_ROW 4
 
 // Assuming a global array of frames is defined somewhere
-static Frame globalFrames[MAX_FRAMES];  // MAX_FRAMES is a defined constant
+static Frame global_frames[MAX_FRAMES];  // MAX_FRAMES is a defined constant
 
 // Function to provide access to the global frames
 static Spritesheet* sheet;
 static SDL_Renderer* renderer;
 
-Frame* get_frames() { return globalFrames; }
+Frame* get_frames() { return global_frames; }
 
-void initFrames(Spritesheet* spritesheet) {
+void init_frames(Spritesheet* spritesheet) {
   sheet = spritesheet;
   renderer = get_renderer();
-  int numFrames = sheet->numSprites;
+  int num_frames = sheet->num_sprites;
 
-  for (int i = 0; i < numFrames; ++i) {
-    globalFrames[i].x = (i % FRAMES_PER_ROW) * FRAME_WIDTH;
-    globalFrames[i].y = (i / FRAMES_PER_ROW) * FRAME_HEIGHT;
+  for (int i = 0; i < num_frames; ++i) {
+    global_frames[i].x = (i % FRAMES_PER_ROW) * FRAME_WIDTH;
+    global_frames[i].y = (i / FRAMES_PER_ROW) * FRAME_HEIGHT;
   }
 }
 
-void drawFrame(int x, int y, Frame* frame) {
+void draw_frame(int x, int y, Frame* frame) {
   if (renderer == NULL || sheet == NULL || frame == NULL) {
     return;
   }
 
-  SDL_Rect srcRect = {frame->x, frame->y, FRAME_WIDTH, FRAME_HEIGHT};
-  SDL_Rect destRect = {x, y, FRAME_WIDTH,
-                       FRAME_HEIGHT};  // Modify as needed for position
+  SDL_Rect src_rect = {frame->x, frame->y, FRAME_WIDTH, FRAME_HEIGHT};
+  SDL_Rect dest_rect = {x, y, FRAME_WIDTH,
+                        FRAME_HEIGHT};  // Modify as needed for position
 
-  SDL_RenderCopy(renderer, sheet->texture, &srcRect, &destRect);
+  SDL_RenderCopy(renderer, sheet->texture, &src_rect, &dest_rect);
 }
 
-void cleanupFrames() {}
+void cleanup_frames() {}

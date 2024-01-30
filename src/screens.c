@@ -11,14 +11,14 @@ static SDL_Texture* screens[NUM_SCREENS] = {NULL};
 
 void load_screens() {
   SDL_Renderer* renderer = get_renderer();
-  const char* screenFiles[NUM_SCREENS] = {"./assets/images/title-screen.png",
-                                          "./assets/images/level.png"};
+  const char* screen_files[NUM_SCREENS] = {"./assets/images/title-screen.png",
+                                           "./assets/images/level.png"};
 
   for (int i = 0; i < NUM_SCREENS; i++) {
-    SDL_Surface* tempSurface = IMG_Load(screenFiles[i]);
+    SDL_Surface* tempSurface = IMG_Load(screen_files[i]);
     if (!tempSurface) {
       fprintf(stderr, "Unable to load image %s! SDL_image Error: %s\n",
-              screenFiles[i], IMG_GetError());
+              screen_files[i], IMG_GetError());
       continue;
     }
 
@@ -27,7 +27,7 @@ void load_screens() {
 
     if (!screens[i]) {
       fprintf(stderr, "Unable to create texture from %s! SDL Error: %s\n",
-              screenFiles[i], SDL_GetError());
+              screen_files[i], SDL_GetError());
     }
   }
 }

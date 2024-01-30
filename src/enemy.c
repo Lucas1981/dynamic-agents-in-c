@@ -18,7 +18,7 @@ static Hitbox enemy_hitbox = {ENEMY_OFFSET_X, ENEMY_OFFSET_Y, ENEMY_WIDTH,
                               ENEMY_HEIGHT};
 
 void kill_enemy(Agent *enemy) {
-  enemy->animationType = ENEMY_DYING;
+  enemy->animation_type = ENEMY_DYING;
   enemy->killed = 1;
   enemy->start_time = get_now();
 }
@@ -26,15 +26,15 @@ void kill_enemy(Agent *enemy) {
 Hitbox *get_enemy_hitbox() { return &enemy_hitbox; }
 
 void enemy_progress(Agent *enemy) {
-  if (enemy->animationType == ENEMY_DYING) {
+  if (enemy->animation_type == ENEMY_DYING) {
     int now = get_now();
     if (now - enemy->start_time > DYING_TIME) {
-      deactivateAgent(enemy->index);
+      deactivate_agent(enemy->index);
     }
     return;
   }
 
-  const GlobalGameState *global_game_state = getGlobalGameState();
+  const GlobalGameState *global_game_state = get_global_game_state();
 
   Uint32 elapsed_time = get_elapsed_time();
   // Assuming SPEED is defined and elapsed_time is available

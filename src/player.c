@@ -31,34 +31,34 @@ Hitbox *get_player_hitbox() { return &player_hitbox; }
 
 void player_progress(Agent *player) {
   Uint32 elapsed_time = get_elapsed_time();
-  KeyState *keyState = get_key_state();
+  KeyState *key_state = get_key_state();
   int now = get_now();
   // Assuming SPEED is defined and elapsed_time is available
   float movement =
       (float)SPEED / 1000.0f * elapsed_time;  // Floating point calculation
 
   // Update position based on key states
-  AnimationType prev_animation_type = player->animationType;
+  AnimationType prev_animation_type = player->animation_type;
 
-  player->animationType = PLAYER_STANDING;
+  player->animation_type = PLAYER_STANDING;
 
-  if (keyState->left) {
+  if (key_state->left) {
     player->x -= movement;
-    player->animationType = PLAYER_WALKING;
+    player->animation_type = PLAYER_WALKING;
   }
 
-  if (keyState->right) {
+  if (key_state->right) {
     player->x += movement;
-    player->animationType = PLAYER_WALKING;
+    player->animation_type = PLAYER_WALKING;
   }
 
-  if (player->animationType != prev_animation_type) {
+  if (player->animation_type != prev_animation_type) {
     player->start_time = now;
   }
 
-  if (keyState->space && (last_shot == 0 || now - last_shot > SHOT_THRESHOLD)) {
+  if (key_state->space && (last_shot == 0 || now - last_shot > SHOT_THRESHOLD)) {
     Hitbox *bullet_hitbox = get_bullet_hitbox();
-    addAgent(player->x, player->y - HALF_PLAYER_HEIGHT, BULLET,
+    add_agent(player->x, player->y - HALF_PLAYER_HEIGHT, BULLET,
              BULLET_ANIMATION, &bullet_progress, bullet_hitbox);
     stage_sound(GUNSHOT);
     last_shot = now;

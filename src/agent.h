@@ -19,7 +19,7 @@ typedef struct Agent {
   float x;
   float y;
   AgentType type;
-  AnimationType animationType;  // Current animation name
+  AnimationType animation_type;  // Current animation name
   Uint32 start_time;            // Start time of the animation
   Uint32 creation_time;
   ProgressFunction progress;

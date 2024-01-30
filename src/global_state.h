@@ -28,7 +28,7 @@ typedef struct Enemies {
 } Enemies;
 
 typedef struct {
-  GameState currentState;
+  GameState current_state;
   Uint32 last_state_change;
   Enemies enemies;
   int number_of_lives;
@@ -38,12 +38,12 @@ typedef struct {
 void reset_game_state();
 void increase_level();
 void decrease_lives();
-void setGameState(GameState newState);
+void set_game_state(GameState newState);
 void initiate_level(int enemies_target, int enemies_speed,
                     int enemies_spawning_speed);
 void increase_enemies_killed();
 void increase_enemies_issued();
 void change_state(GameState newState);
-const GlobalGameState* getGlobalGameState();
+const GlobalGameState* get_global_game_state();
 
 #endif  // GLOBAL_STATE_H

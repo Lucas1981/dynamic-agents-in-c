@@ -8,7 +8,7 @@ static SDL_Renderer* renderer = NULL;
 
 // Function prototypes for internal use
 static SDL_Texture* create_text_texture(const char* string, SDL_Color color);
-static int calculate_render_x(int x, TextAlignment alignment, int textWidth);
+static int calculate_render_x(int x, TextAlignment alignment, int text_width);
 static void render_text(SDL_Texture* texture, int x, int y, int width,
                         int height);
 
@@ -31,62 +31,62 @@ void initiate_user_interface() {
   }
 }
 
-void print_user_interface_with_outline(const char* string, int x, int y,
-                                       TextAlignment horizontalTextAlignment) {
+void print_user_interface_with_outline(
+    const char* string, int x, int y, TextAlignment horizontal_text_alignment) {
   if (!renderer || !font) {
     fprintf(stderr, "UI not initialized or font not loaded.\n");
     return;
   }
 
-  SDL_Color outlineColor = {80, 80, 80};  // Dark gray outline
-  int outlineSize = 2;
+  SDL_Color outline_color = {80, 80, 80};  // Dark gray outline
+  int outline_size = 2;
 
   // Set the font outline
-  TTF_SetFontOutline(font, outlineSize);
+  TTF_SetFontOutline(font, outline_size);
 
   // Create texture for the outline
-  SDL_Texture* outlineTexture = create_text_texture(string, outlineColor);
-  if (!outlineTexture) {
+  SDL_Texture* outline_texture = create_text_texture(string, outline_color);
+  if (!outline_texture) {
     return;
   }
 
-  int textWidth, textHeight;
-  SDL_QueryTexture(outlineTexture, NULL, NULL, &textWidth, &textHeight);
-  int render_x = calculate_render_x(x, horizontalTextAlignment, textWidth);
-  render_text(outlineTexture, render_x - outlineSize / 2, y - outlineSize / 2,
-              textWidth, textHeight);
+  int text_width, text_height;
+  SDL_QueryTexture(outline_texture, NULL, NULL, &text_width, &text_height);
+  int render_x = calculate_render_x(x, horizontal_text_alignment, text_width);
+  render_text(outline_texture, render_x - outline_size / 2,
+              y - outline_size / 2, text_width, text_height);
 
   // Clean up
-  SDL_DestroyTexture(outlineTexture);
+  SDL_DestroyTexture(outline_texture);
 
   // Set the font outline back to 0 for main text
   TTF_SetFontOutline(font, 0);
 
-  print_user_interface(string, x, y, horizontalTextAlignment);
+  print_user_interface(string, x, y, horizontal_text_alignment);
 }
 
 void print_user_interface(const char* string, int x, int y,
-                          TextAlignment horizontalTextAlignment) {
+                          TextAlignment horizontal_text_alignment) {
   if (!renderer || !font) {
     fprintf(stderr, "UI not initialized or font not loaded.\n");
     return;
   }
 
-  SDL_Color textColor = {255, 255, 255};  // White color
+  SDL_Color text_color = {255, 255, 255};  // White color
 
   // Create texture from string
-  SDL_Texture* textTexture = create_text_texture(string, textColor);
-  if (!textTexture) {
+  SDL_Texture* text_texture = create_text_texture(string, text_color);
+  if (!text_texture) {
     return;
   }
 
-  int textWidth, textHeight;
-  SDL_QueryTexture(textTexture, NULL, NULL, &textWidth, &textHeight);
-  int render_x = calculate_render_x(x, horizontalTextAlignment, textWidth);
-  render_text(textTexture, render_x, y, textWidth, textHeight);
+  int text_width, text_height;
+  SDL_QueryTexture(text_texture, NULL, NULL, &text_width, &text_height);
+  int render_x = calculate_render_x(x, horizontal_text_alignment, text_width);
+  render_text(text_texture, render_x, y, text_width, text_height);
 
   // Clean up
-  SDL_DestroyTexture(textTexture);
+  SDL_DestroyTexture(text_texture);
 }
 
 void cleanup_user_interface() {
@@ -105,24 +105,24 @@ static SDL_Texture* create_text_texture(const char* string, SDL_Color color) {
     return NULL;
   }
 
-  SDL_Texture* textTexture =
+  SDL_Texture* text_texture =
       SDL_CreateTextureFromSurface(renderer, textSurface);
   SDL_FreeSurface(textSurface);
-  if (!textTexture) {
+  if (!text_texture) {
     fprintf(stderr,
             "Unable to create texture from rendered text! SDL Error: %s\n",
             SDL_GetError());
   }
 
-  return textTexture;
+  return text_texture;
 }
 
-static int calculate_render_x(int x, TextAlignment alignment, int textWidth) {
+static int calculate_render_x(int x, TextAlignment alignment, int text_width) {
   switch (alignment) {
     case TEXT_ALIGN_CENTER:
-      return x - textWidth / 2;
+      return x - text_width / 2;
     case TEXT_ALIGN_RIGHT:
-      return x - textWidth;
+      return x - text_width;
     case TEXT_ALIGN_LEFT:
     default:
       return x;
@@ -131,6 +131,6 @@ static int calculate_render_x(int x, TextAlignment alignment, int textWidth) {
 
 static void render_text(SDL_Texture* texture, int x, int y, int width,
                         int height) {
-  SDL_Rect renderQuad = {x, y, width, height};
-  SDL_RenderCopy(renderer, texture, NULL, &renderQuad);
+  SDL_Rect render_quad = {x, y, width, height};
+  SDL_RenderCopy(renderer, texture, NULL, &render_quad);
 }

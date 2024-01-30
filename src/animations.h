@@ -23,14 +23,14 @@ typedef struct Animation {
 } Animation;
 
 // Function to initialize all animations
-void initAnimations();
+void init_animations();
 
 void draw(struct Agent* agent);
 
 // Function to get an animation by type
-Animation* getAnimation(AnimationType type);
+Animation* get_animation(AnimationType type);
 
 // Function to clean up animations
-void cleanupAnimations();
+void cleanup_animations();
 
 #endif  // ANIMATIONS_H
