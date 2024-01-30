@@ -9,8 +9,7 @@
 #include "sound.h"
 #include "sound_queue.h"
 
-static void check_and_handle_collision(Agent *sourceEntity,
-                                       Agent *targetEntity);
+static void check_and_handle_collision(Agent *source, Agent *target);
 static void handle_intersection(Agent *source, Agent *target);
 
 void detect_collision(void) {
@@ -32,8 +31,7 @@ void detect_collision(void) {
 }
 
 static void check_and_handle_collision(Agent *source, Agent *target) {
-  if (!target->active || target->type != BULLET ||
-      source->index == target->index) {
+  if (!target->active || target->type != BULLET || source == target) {
     return;
   }
 
@@ -53,5 +51,5 @@ static void check_and_handle_collision(Agent *source, Agent *target) {
 static void handle_intersection(Agent *source, Agent *target) {
   kill_enemy(source);
   stage_sound(SCREAM);
-  deactivate_agent(target->index);
+  deactivate_agent(target);
 }

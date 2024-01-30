@@ -13,7 +13,7 @@ static int last_checked_index = 0;
 
 void init_agent_pool(void) {
   for (int i = 0; i < POOL_SIZE; i++) {
-    pool[i] = (Agent){0, 0, 0, 0, 0, 0,
+    pool[i] = (Agent){0, 0, 0, 0, 0,
                       0, 0, 0, 0, 0};  // Initialize with default values
   }
 }
@@ -25,9 +25,7 @@ int add_agent(float x, float y, AgentType type, AnimationType animation_type,
   do {
     if (!pool[last_checked_index].active) {
       pool[last_checked_index] =
-          (Agent){x,      y,   type,     animation_type,
-                  now,    now, progress, last_checked_index,
-                  hitbox, 0,   1};
+          (Agent){x, y, type, animation_type, now, now, progress, hitbox, 0, 1};
       int added_index = last_checked_index;
       last_checked_index = (last_checked_index + 1) % POOL_SIZE;
       return added_index;  // Return the index where the agent was activated
@@ -37,9 +35,9 @@ int add_agent(float x, float y, AgentType type, AnimationType animation_type,
   return -1;  // No available spots
 }
 
-void deactivate_agent(int index) {
-  if (index >= 0 && index < POOL_SIZE) {
-    pool[index].active = 0;
+void deactivate_agent(Agent* agent) {
+  if (agent) {
+    agent->active = 0;
   }
 }
 

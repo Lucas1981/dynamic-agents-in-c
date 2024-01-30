@@ -22,7 +22,6 @@ typedef struct Agent {
   Uint32 start_time;             // Start time of the animation
   Uint32 creation_time;
   ProgressFunction progress;
-  int index;
   Hitbox *hitbox;
   int killed;
   int active;
