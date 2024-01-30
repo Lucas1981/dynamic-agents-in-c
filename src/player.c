@@ -31,7 +31,7 @@ Hitbox *get_player_hitbox(void) { return &player_hitbox; }
 void player_progress(Agent *player) {
   Uint32 elapsed_time = get_elapsed_time();
   KeyState *key_state = get_key_state();
-  int now = get_now();
+  Uint32 now = get_now();
   // Assuming SPEED is defined and elapsed_time is available
   float movement =
       (float)SPEED / 1000.0f * elapsed_time;  // Floating point calculation

@@ -37,7 +37,7 @@ void init_animations(void) {
   animations[ENEMY_DYING].num_frames = 1;
 }
 
-void draw(Agent* agent) {
+void draw_agent(Agent* agent) {
   Uint32 current_time = SDL_GetTicks();
   Animation animation = animations[agent->animation_type];
   Uint32 elapsed_time = current_time - agent->start_time;

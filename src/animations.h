@@ -21,7 +21,7 @@ typedef struct Animation {
 } Animation;
 
 void init_animations(void);
-void draw(struct Agent* agent);
+void draw_agent(struct Agent* agent);
 Animation* get_animation(AnimationType type);
 void cleanup_animations(void);
 

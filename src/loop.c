@@ -85,7 +85,7 @@ static void draw_agents(void) {
   for (int i = 0; i < get_pool_size(); i++) {
     Agent *agent = &pool[i];
     if (agent->active) {
-      draw(agent);
+      draw_agent(agent);
     }
   }
 }

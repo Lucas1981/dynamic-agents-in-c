@@ -33,6 +33,9 @@ static void handle_input(SDL_Event event) {
         break;
       case SDLK_ESCAPE:
         key_state.escape = 1;
+        break;
+      default:
+        break;
     }
   } else if (event.type == SDL_KEYUP) {
     switch (event.key.keysym.sym) {
@@ -50,6 +53,8 @@ static void handle_input(SDL_Event event) {
         break;
       case SDLK_ESCAPE:
         key_state.escape = 0;
+      default:
+        break;
     }
   } else if (event.type == SDL_QUIT) {
     quit = 1;

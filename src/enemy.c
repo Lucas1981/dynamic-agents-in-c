@@ -24,7 +24,7 @@ void kill_enemy(Agent *enemy) {
 
 void enemy_progress(Agent *enemy) {
   if (enemy->animation_type == ENEMY_DYING) {
-    int now = get_now();
+    Uint32 now = get_now();
     if (now - enemy->start_time > DYING_TIME) {
       deactivate_agent(enemy);
     }

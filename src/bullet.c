@@ -19,7 +19,7 @@ static Hitbox bullet_hitbox = {BULLET_OFFSET_X, BULLET_OFFSET_Y, BULLET_WIDTH,
 Hitbox *get_bullet_hitbox(void) { return &bullet_hitbox; }
 
 void bullet_progress(Agent *bullet) {
-  int now = get_now();
+  Uint32 now = get_now();
   if (now - bullet->creation_time > LIFESPAN) {
     deactivate_agent(bullet);
     return;

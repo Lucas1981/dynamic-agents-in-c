@@ -49,6 +49,8 @@ void run_game(void) {
       case FINISHED:
         handle_finished_state();
         break;
+      default:
+        break;
     }
 
     render_graphics();
