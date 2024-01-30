@@ -30,7 +30,6 @@ static void handle_user_interface(const GlobalGameState *global_game_state);
 void game_loop(int apply_progress) {
   const GlobalGameState *global_game_state = get_global_game_state();
   draw_screen(LEVEL_SCREEN);
-  draw_agents();
 
   if (apply_progress) {
     attempt_enemy_generation(global_game_state);
@@ -39,6 +38,8 @@ void game_loop(int apply_progress) {
     check_stage(global_game_state);
     draw_agents();
     handle_user_interface(global_game_state);
+  } else {
+    draw_agents();
   }
 }
 
