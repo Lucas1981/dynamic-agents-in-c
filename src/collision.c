@@ -9,37 +9,31 @@
 #include "sound.h"
 #include "sound_queue.h"
 
-static void check_and_handle_collision(AgentEntity *sourceEntity,
-                                       AgentEntity *targetEntity);
+static void check_and_handle_collision(Agent *sourceEntity,
+                                       Agent *targetEntity);
 static void handle_intersection(Agent *source, Agent *target);
 
 void detect_collision(void) {
-  AgentEntity *pool = get_pool();
+  Agent *pool = get_pool();
   int pool_size = get_pool_size();
 
   for (int i = 0; i < pool_size; i++) {
-    AgentEntity *sourceEntity = &pool[i];
-    if (!sourceEntity->active || sourceEntity->agent.type != ENEMY ||
+    Agent *source = &pool[i];
+    if (!source->active || source->type != ENEMY ||
         // Make sure we don't shoot already dead enemies
-        sourceEntity->agent.killed) {
+        source->killed) {
       continue;
     }
 
     for (int j = 0; j < pool_size; j++) {
-      check_and_handle_collision(sourceEntity, &pool[j]);
+      check_and_handle_collision(source, &pool[j]);
     }
   }
 }
 
-static void check_and_handle_collision(AgentEntity *sourceEntity,
-                                       AgentEntity *targetEntity) {
-  if (!targetEntity->active || sourceEntity == targetEntity) {
-    return;
-  }
-
-  Agent *source = &sourceEntity->agent;
-  Agent *target = &targetEntity->agent;
-  if (target->type != BULLET) {
+static void check_and_handle_collision(Agent *source, Agent *target) {
+  if (!target->active || target->type != BULLET ||
+      source->index == target->index) {
     return;
   }
 

@@ -69,24 +69,22 @@ static void attempt_enemy_generation(const GlobalGameState *global_game_state) {
 }
 
 static void update_agents(void) {
-  AgentEntity *pool = get_pool();
+  Agent *pool = get_pool();
 
   for (int i = 0; i < get_pool_size(); i++) {
-    AgentEntity *agent_entity = &pool[i];
-    if (agent_entity->active) {
-      Agent *agent = &agent_entity->agent;
+    Agent *agent = &pool[i];
+    if (agent->active) {
       agent->progress(agent);
     }
   }
 }
 
 static void draw_agents(void) {
-  AgentEntity *pool = get_pool();
+  Agent *pool = get_pool();
 
   for (int i = 0; i < get_pool_size(); i++) {
-    AgentEntity *agent_entity = &pool[i];
-    if (agent_entity->active) {
-      Agent *agent = &agent_entity->agent;
+    Agent *agent = &pool[i];
+    if (agent->active) {
       draw(agent);
     }
   }
@@ -99,11 +97,10 @@ static void check_stage(const GlobalGameState *global_game_state) {
   }
 
   // Did any of the enemies cross the line?
-  AgentEntity *pool = get_pool();
+  Agent *pool = get_pool();
   for (int i = 0; i < get_pool_size(); i++) {
-    AgentEntity *agent_entity = &pool[i];
-    if (agent_entity->active) {
-      Agent *agent = &agent_entity->agent;
+    Agent *agent = &pool[i];
+    if (agent->active) {
       if (agent->y >= ENEMY_LINE_THRESHOLD) {
         change_state(DEAD);
         return;

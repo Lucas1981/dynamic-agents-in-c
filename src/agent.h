@@ -25,6 +25,7 @@ typedef struct Agent {
   int index;
   Hitbox *hitbox;
   int killed;
+  int active;
 } Agent;
 
 #endif  // AGENT_H
