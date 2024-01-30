@@ -15,15 +15,15 @@ void load_screens(void) {
                                            "./assets/images/level.png"};
 
   for (int i = 0; i < NUM_SCREENS; i++) {
-    SDL_Surface* tempSurface = IMG_Load(screen_files[i]);
-    if (!tempSurface) {
+    SDL_Surface* temp_surface = IMG_Load(screen_files[i]);
+    if (!temp_surface) {
       fprintf(stderr, "Unable to load image %s! SDL_image Error: %s\n",
               screen_files[i], IMG_GetError());
       continue;
     }
 
-    screens[i] = SDL_CreateTextureFromSurface(renderer, tempSurface);
-    SDL_FreeSurface(tempSurface);
+    screens[i] = SDL_CreateTextureFromSurface(renderer, temp_surface);
+    SDL_FreeSurface(temp_surface);
 
     if (!screens[i]) {
       fprintf(stderr, "Unable to create texture from %s! SDL Error: %s\n",
@@ -32,7 +32,7 @@ void load_screens(void) {
   }
 }
 
-void draw_screen(SCREEN_TYPE type) {
+void draw_screen(ScreenType type) {
   if (type < 0 || type >= NUM_SCREENS) {
     return;
   }

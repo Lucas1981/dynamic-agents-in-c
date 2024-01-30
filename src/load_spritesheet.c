@@ -7,28 +7,28 @@
 Spritesheet* load_spritesheet(const char* filename, SDL_Renderer* renderer,
                               int sprite_width, int sprite_height) {
   // Load the image into an SDL_Surface
-  SDL_Surface* tempSurface = IMG_Load(filename);
-  if (tempSurface == NULL) {
+  SDL_Surface* temp_surface = IMG_Load(filename);
+  if (temp_surface == NULL) {
     fprintf(stderr, "Unable to load image %s! SDL Error: %s\n", filename,
             SDL_GetError());
     return NULL;
   }
 
   // Create texture from surface pixels
-  SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, tempSurface);
+  SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, temp_surface);
   if (texture == NULL) {
     fprintf(stderr, "Unable to create texture from %s! SDL Error: %s\n",
             filename, SDL_GetError());
-    SDL_FreeSurface(tempSurface);
+    SDL_FreeSurface(temp_surface);
     return NULL;
   }
 
   // Get the dimensions of the entire spritesheet
-  int width = tempSurface->w;
-  int height = tempSurface->h;
+  int width = temp_surface->w;
+  int height = temp_surface->h;
 
   // Free the temporary surface
-  SDL_FreeSurface(tempSurface);
+  SDL_FreeSurface(temp_surface);
 
   // Calculate number of sprites
   int num_sprites = (width / sprite_width) * (height / sprite_height);

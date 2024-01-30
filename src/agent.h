@@ -5,7 +5,7 @@
 
 #include "animations.h"
 
-typedef enum AgentType { PLAYER, ENEMY, BULLET } AgentType;
+typedef enum { PLAYER, ENEMY, BULLET } AgentType;
 typedef struct Hitbox {
   int x;
   int y;

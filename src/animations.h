@@ -16,8 +16,8 @@ typedef enum {
 } AnimationType;
 
 typedef struct Animation {
-  int* frameIndices;  // Array of frame indices
-  int numFrames;      // Number of frames in the animation
+  int* frame_indices;  // Array of frame indices
+  int num_frames;      // Number of frames in the animation
 } Animation;
 
 void init_animations(void);

@@ -12,39 +12,39 @@
 static Animation animations[NUM_ANIMATIONS];
 static Frame* frames;
 
-static int enemyWalkingFrameIndices[] = {2, 6};
-static int playerStandingFrameIndices[] = {0};
-static int playerWalkingFrameIndices[] = {4, 0, 5, 0};
-static int bulletFrameIndices[] = {7};
-static int enemyDyingIndices[] = {1};
+static int enemy_walking_frame_indices[] = {2, 6};
+static int player_standing_frame_indices[] = {0};
+static int player_walking_frame_indices[] = {4, 0, 5, 0};
+static int bullet_frame_indices[] = {7};
+static int enemy_dying_indices[] = {1};
 
 void init_animations(void) {
   frames = get_frames();
 
-  animations[ENEMY_WALKING].frameIndices = enemyWalkingFrameIndices;
-  animations[ENEMY_WALKING].numFrames = 2;
+  animations[ENEMY_WALKING].frame_indices = enemy_walking_frame_indices;
+  animations[ENEMY_WALKING].num_frames = 2;
 
-  animations[PLAYER_STANDING].frameIndices = playerStandingFrameIndices;
-  animations[PLAYER_STANDING].numFrames = 1;
+  animations[PLAYER_STANDING].frame_indices = player_standing_frame_indices;
+  animations[PLAYER_STANDING].num_frames = 1;
 
-  animations[PLAYER_WALKING].frameIndices = playerWalkingFrameIndices;
-  animations[PLAYER_WALKING].numFrames = 4;
+  animations[PLAYER_WALKING].frame_indices = player_walking_frame_indices;
+  animations[PLAYER_WALKING].num_frames = 4;
 
-  animations[BULLET_ANIMATION].frameIndices = bulletFrameIndices;
-  animations[BULLET_ANIMATION].numFrames = 1;
+  animations[BULLET_ANIMATION].frame_indices = bullet_frame_indices;
+  animations[BULLET_ANIMATION].num_frames = 1;
 
-  animations[ENEMY_DYING].frameIndices = enemyDyingIndices;
-  animations[ENEMY_DYING].numFrames = 1;
+  animations[ENEMY_DYING].frame_indices = enemy_dying_indices;
+  animations[ENEMY_DYING].num_frames = 1;
 }
 
 void draw(Agent* agent) {
   Uint32 current_time = SDL_GetTicks();
   Animation animation = animations[agent->animation_type];
   Uint32 elapsed_time = current_time - agent->start_time;
-  int animationFrameIndex =
-      (elapsed_time / FRAME_DURATION) % animation.numFrames;
-  int frameIndex = animation.frameIndices[animationFrameIndex];
-  Frame frame = frames[frameIndex];
+  int animation_frame_index =
+      (elapsed_time / FRAME_DURATION) % animation.num_frames;
+  int frame_index = animation.frame_indices[animation_frame_index];
+  Frame frame = frames[frame_index];
   draw_frame((int)agent->x, (int)agent->y, &frame);
 }
 

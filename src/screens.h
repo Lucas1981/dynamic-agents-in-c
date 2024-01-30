@@ -7,10 +7,10 @@ typedef enum {
   TITLE_SCREEN,
   LEVEL_SCREEN,
   NUM_SCREENS  // Number of screens, always keep this last
-} SCREEN_TYPE;
+} ScreenType;
 
 void load_screens(void);
-void draw_screen(SCREEN_TYPE type);
+void draw_screen(ScreenType type);
 void cleanup_screens(void);
 
 #endif  // SCREENS_H
