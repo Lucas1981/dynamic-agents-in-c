@@ -29,7 +29,6 @@ void run_game(void) {
 
   while (!key_state->escape && !get_quit()) {
     set_time();
-    Uint32 now = get_now();
     handle_inputs();
     const GlobalGameState* global_game_state = get_global_game_state();
     switch (global_game_state->current_state) {

@@ -13,7 +13,6 @@
 #define ENEMY_WIDTH 32
 #define ENEMY_HEIGHT 64
 
-static Uint32 last_time = 0;
 static Hitbox enemy_hitbox = {ENEMY_OFFSET_X, ENEMY_OFFSET_Y, ENEMY_WIDTH,
                               ENEMY_HEIGHT};
 

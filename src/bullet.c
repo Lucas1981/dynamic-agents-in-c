@@ -13,7 +13,6 @@
 #define BULLET_WIDTH 10
 #define BULLET_HEIGHT 10
 
-static Uint32 last_time = 0;
 static Hitbox bullet_hitbox = {BULLET_OFFSET_X, BULLET_OFFSET_Y, BULLET_WIDTH,
                                BULLET_HEIGHT};
 

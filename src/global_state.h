@@ -24,7 +24,7 @@ typedef struct Enemies {
   int issued;
   int killed;
   int speed;
-  int spawning_speed;
+  Uint32 spawning_speed;
 } Enemies;
 
 typedef struct {

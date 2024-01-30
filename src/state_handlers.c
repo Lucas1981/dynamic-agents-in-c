@@ -26,7 +26,6 @@ static void reset_stage(void);
 static void reset_game(void);
 
 void handle_title_state(void) {
-  const GlobalGameState* global_game_state = get_global_game_state();
   KeyState* key_state = get_key_state();
   draw_screen(TITLE_SCREEN);
   print_user_interface_with_outline("Press enter to start", HALF_SCREEN_WIDTH,

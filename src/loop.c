@@ -23,9 +23,6 @@ static Uint32 enemy_generation_timer = 0;
 // Forward declarations
 static void attempt_enemy_generation(const GlobalGameState *global_game_state);
 static void update_agents(void);
-static void handle_intersection(Agent *source, Agent *target);
-static void check_and_handle_collision(AgentEntity *sourceEntity,
-                                       AgentEntity *targetEntity);
 static void draw_agents(void);
 static void check_stage(const GlobalGameState *global_game_state);
 static void handle_user_interface(const GlobalGameState *global_game_state);
