@@ -104,10 +104,6 @@ void handle_finished_state(void) {
   }
 }
 
-void handle_pause_state(void) {
-  // Code for PAUSE state
-}
-
 static void reset_stage(void) {
   reset_pool();
   const GlobalGameState* global_game_state = get_global_game_state();

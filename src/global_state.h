@@ -16,7 +16,6 @@ typedef enum {
   WON,
   FINISHED,
   GAME_OVER,
-  PAUSE
 } GameState;
 
 typedef struct Enemies {

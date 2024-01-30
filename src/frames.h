@@ -12,7 +12,7 @@ typedef struct Frame {
 } Frame;
 
 Frame* get_frames(void);
-void init_frames(Spritesheet* spritesheet);
+void init_frames(void);
 void draw_frame(int x, int y, Frame* frame);
 void cleanup_frames(void);
 

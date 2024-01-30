@@ -7,15 +7,11 @@
 #include "global_state.h"
 #include "graphics.h"
 #include "input.h"
-#include "load_spritesheet.h"
 #include "screens.h"
 #include "sound.h"
 #include "sound_queue.h"
 #include "state_handlers.h"
 #include "user_interface.h"
-
-// Variable to hold the current game state
-static Spritesheet* sheet;
 
 // Forward declarations
 static void init_game(void);
@@ -53,9 +49,6 @@ void run_game(void) {
       case FINISHED:
         handle_finished_state();
         break;
-      case PAUSE:
-        handle_pause_state();
-        break;
     }
 
     render_graphics();
@@ -73,22 +66,20 @@ static void init_game(void) {
     exit(1);
   }
   printf("Graphics done.\n");
-  SDL_Renderer* renderer = get_renderer();
-  printf("Renderer done.\n");
-  sheet = load_spritesheet("./assets/images/spritesheet.png", renderer, 64, 64);
-  printf("Spritesheet done.\n");
-  init_frames(sheet);
+  init_frames();
   printf("Frames done.\n");
   init_animations();
   printf("Animations done.\n");
   init_sounds();
+  printf("Sounds done.\n");
   init_sound_queue();
-  printf("Sound initiation done\n");
+  printf("Sounds queue.\n");
   initiate_user_interface();
-  printf("User interface initiation done\n");
+  printf("User interface done.\n");
   init_agent_pool();
-  printf("Loading screens\n");
+  printf("Agent pool done.\n");
   load_screens();
+  printf("Loading screens done.\n");
   set_game_state(TITLE);
   set_time();
   printf("Initiation complete.\n\n");
@@ -103,7 +94,6 @@ static void cleanup_game(void) {
   cleanup_sounds();
   cleanup_animations();
   cleanup_frames();
-  free_spritesheet(sheet);
   cleanup_graphics();
   printf("Cleanup done.\n");
 }

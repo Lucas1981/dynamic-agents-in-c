@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 #include "graphics.h"
+#include "load_spritesheet.h"
 
 #define MAX_FRAMES 16
 #define FRAMES_PER_ROW 4
@@ -18,8 +19,9 @@ static SDL_Renderer* renderer;
 
 Frame* get_frames(void) { return global_frames; }
 
-void init_frames(Spritesheet* spritesheet) {
-  sheet = spritesheet;
+void init_frames(void) {
+  renderer = get_renderer();
+  sheet = load_spritesheet("./assets/images/spritesheet.png", renderer, 64, 64);
   renderer = get_renderer();
   int num_frames = sheet->num_sprites;
 
@@ -41,4 +43,4 @@ void draw_frame(int x, int y, Frame* frame) {
   SDL_RenderCopy(renderer, sheet->texture, &src_rect, &dest_rect);
 }
 
-void cleanup_frames(void) {}
+void cleanup_frames(void) { free_spritesheet(sheet); }

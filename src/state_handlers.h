@@ -8,6 +8,5 @@ void handle_dead_state(void);
 void handle_game_over_state(void);
 void handle_won_state(void);
 void handle_finished_state(void);
-void handle_pause_state(void);
 
 #endif

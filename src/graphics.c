@@ -38,12 +38,6 @@ void cleanup_graphics(void) {
   SDL_Quit();
 }
 
-void draw_red_rectangle(int x, int y, int width, int height) {
-  SDL_Rect rect = {x, y, width, height};
-  SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);  // RGBA for red
-  SDL_RenderFillRect(renderer, &rect);
-}
-
 void render_graphics(void) {
   SDL_RenderPresent(renderer);
   SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);  // Clear with black
