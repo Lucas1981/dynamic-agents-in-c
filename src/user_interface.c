@@ -98,16 +98,16 @@ void cleanup_user_interface(void) {
 }
 
 static SDL_Texture* create_text_texture(const char* string, SDL_Color color) {
-  SDL_Surface* textSurface = TTF_RenderText_Solid(font, string, color);
-  if (!textSurface) {
+  SDL_Surface* text_surface = TTF_RenderText_Solid(font, string, color);
+  if (!text_surface) {
     fprintf(stderr, "Unable to render text surface! SDL_ttf Error: %s\n",
             TTF_GetError());
     return NULL;
   }
 
   SDL_Texture* text_texture =
-      SDL_CreateTextureFromSurface(renderer, textSurface);
-  SDL_FreeSurface(textSurface);
+      SDL_CreateTextureFromSurface(renderer, text_surface);
+  SDL_FreeSurface(text_surface);
   if (!text_texture) {
     fprintf(stderr,
             "Unable to create texture from rendered text! SDL Error: %s\n",
