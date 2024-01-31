@@ -1,16 +1,19 @@
 #include "state_handlers.h"
 
-#include "agent.h"
-#include "agent_pool.h"
-#include "clock.h"
-#include "global_state.h"
-#include "graphics.h"
-#include "input.h"
-#include "level.h"
-#include "loop.h"
-#include "player.h"
-#include "screens.h"
-#include "user_interface.h"
+#include <stdio.h>  // for sprintf
+
+#include "SDL_stdinc.h"      // for Uint32
+#include "agent.h"           // for Hitbox, PLAYER
+#include "agent_pool.h"      // for add_agent, reset_pool
+#include "animations.h"      // for PLAYER_STANDING
+#include "clock.h"           // for get_now
+#include "global_state.h"    // for change_state, get_global_game_state, Glo...
+#include "input.h"           // for get_key_state, KeyState
+#include "level.h"           // for FINAL_LEVEL, Level
+#include "loop.h"            // for game_loop
+#include "player.h"          // for get_player_hitbox, player_progress
+#include "screens.h"         // for draw_screen, TITLE_SCREEN
+#include "user_interface.h"  // for print_user_interface_with_outline, TEXT_...
 
 #define TIME_BETWEEN_STATES 1500
 

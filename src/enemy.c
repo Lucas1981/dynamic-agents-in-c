@@ -1,10 +1,9 @@
-#include <SDL.h>
-#include <stdio.h>
-
-#include "agent.h"
-#include "agent_pool.h"
-#include "clock.h"
-#include "global_state.h"
+#include "SDL_stdinc.h"    // for Uint32
+#include "agent.h"         // for Agent, Hitbox
+#include "agent_pool.h"    // for deactivate_agent
+#include "animations.h"    // for ENEMY_DYING
+#include "clock.h"         // for get_now, get_elapsed_time
+#include "global_state.h"  // for get_global_game_state, GlobalGameState
 
 #define WIDTH 640
 #define DYING_TIME 400

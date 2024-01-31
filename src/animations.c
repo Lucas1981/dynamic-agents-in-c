@@ -1,10 +1,10 @@
 #include "animations.h"
 
-#include <SDL.h>
-#include <stdlib.h>
+#include <stdlib.h>  // for NULL
 
-#include "agent.h"
-#include "frames.h"
+#include "SDL_timer.h"  // for SDL_GetTicks
+#include "agent.h"      // for Agent
+#include "frames.h"     // for Frame, draw_frame, get_frames
 
 #define FRAME_DURATION 125
 

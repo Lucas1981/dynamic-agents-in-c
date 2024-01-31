@@ -1,15 +1,13 @@
-#include <SDL.h>
-#include <stdio.h>
-
-#include "agent.h"
-#include "agent_pool.h"
-#include "animations.h"
-#include "bullet.h"
-#include "clock.h"
-#include "global_state.h"
-#include "input.h"
-#include "sound.h"
-#include "sound_queue.h"
+#include "SDL_stdinc.h"    // for Uint32
+#include "agent.h"         // for Hitbox, Agent, BULLET
+#include "agent_pool.h"    // for add_agent
+#include "animations.h"    // for PLAYER_WALKING, AnimationType, BULLET_ANIM...
+#include "bullet.h"        // for get_bullet_hitbox, bullet_progress
+#include "clock.h"         // for get_elapsed_time, get_now
+#include "global_state.h"  // for LEFT_BORDER, RIGHT_BORDER
+#include "input.h"         // for get_key_state, KeyState
+#include "sound.h"         // for GUNSHOT
+#include "sound_queue.h"   // for stage_sound
 
 #define SPEED 350
 #define WIDTH 640

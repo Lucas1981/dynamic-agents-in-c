@@ -1,7 +1,7 @@
 #ifndef LOAD_SPRITESHEET_H
 #define LOAD_SPRITESHEET_H
 
-#include <SDL.h>
+#include "SDL_render.h"  // for SDL_Renderer, SDL_Texture
 
 typedef struct Spritesheet {
   SDL_Texture* texture;  // Texture for the spritesheet

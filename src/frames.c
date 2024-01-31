@@ -1,11 +1,11 @@
 #include "frames.h"
 
-#include <SDL.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <stdio.h>  // for NULL
 
-#include "graphics.h"
-#include "load_spritesheet.h"
+#include "SDL_rect.h"          // for SDL_Rect
+#include "SDL_render.h"        // for SDL_RenderCopy, SDL_Renderer
+#include "graphics.h"          // for get_renderer
+#include "load_spritesheet.h"  // for free_spritesheet, load_spritesheet
 
 #define MAX_FRAMES 16
 #define FRAMES_PER_ROW 4

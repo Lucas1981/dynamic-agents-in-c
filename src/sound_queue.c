@@ -1,8 +1,5 @@
 #include "sound_queue.h"
 
-#include <SDL_mixer.h>
-#include <stdbool.h>
-
 #define SOUND_QUEUE_SIZE 32
 
 // Sound queue

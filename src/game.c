@@ -1,17 +1,21 @@
 #include "game.h"
 
-#include "agent_pool.h"
-#include "animations.h"
-#include "clock.h"
-#include "frames.h"
-#include "global_state.h"
-#include "graphics.h"
-#include "input.h"
-#include "screens.h"
-#include "sound.h"
-#include "sound_queue.h"
-#include "state_handlers.h"
-#include "user_interface.h"
+#include <stdio.h>   // for printf, NULL
+#include <stdlib.h>  // for exit, srand
+#include <time.h>    // for time
+
+#include "agent_pool.h"      // for init_agent_pool
+#include "animations.h"      // for cleanup_animations, init_animations
+#include "clock.h"           // for set_time
+#include "frames.h"          // for cleanup_frames, init_frames
+#include "global_state.h"    // for TITLE, get_global_game_state, set_game_s...
+#include "graphics.h"        // for cleanup_graphics, init_graphics, render_...
+#include "input.h"           // for get_key_state, get_quit, handle_inputs
+#include "screens.h"         // for cleanup_screens, load_screens
+#include "sound.h"           // for cleanup_sounds, init_sounds
+#include "sound_queue.h"     // for cleanup_sound_queue, init_sound_queue
+#include "state_handlers.h"  // for handle_dead_state, handle_finished_state
+#include "user_interface.h"  // for cleanup_user_interface, initiate_user_in...
 
 // Forward declarations
 static void init_game(void);

@@ -1,8 +1,6 @@
 #ifndef FRAMES_H
 #define FRAMES_H
 
-#include "load_spritesheet.h"
-
 #define FRAME_WIDTH 64
 #define FRAME_HEIGHT 64
 

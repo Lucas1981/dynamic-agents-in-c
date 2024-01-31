@@ -1,13 +1,12 @@
 #include "collision.h"
 
-#include <SDL.h>
-
-#include "agent.h"
-#include "agent_pool.h"
-#include "enemy.h"
-#include "global_state.h"
-#include "sound.h"
-#include "sound_queue.h"
+#include "SDL_rect.h"      // for SDL_HasIntersection, SDL_Rect
+#include "agent.h"         // for Agent, BULLET, ENEMY
+#include "agent_pool.h"    // for deactivate_agent, get_pool, get_pool_size
+#include "enemy.h"         // for kill_enemy
+#include "global_state.h"  // for increase_enemies_killed
+#include "sound.h"         // for SCREAM
+#include "sound_queue.h"   // for stage_sound
 
 static void check_and_handle_collision(Agent *source, Agent *target);
 static void handle_intersection(Agent *source, Agent *target);

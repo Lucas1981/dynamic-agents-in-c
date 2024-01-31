@@ -1,5 +1,7 @@
 #include "clock.h"
 
+#include "SDL_timer.h"  // for SDL_GetTicks
+
 static Uint32 now = 0;
 static Uint32 then = 0;
 static int first_time_set = 1;

@@ -1,6 +1,11 @@
 #include "graphics.h"
 
-#include <SDL.h>
+#include <SDL.h>     // for SDL_Init, SDL_Quit, SDL_INIT_VIDEO
+#include <stddef.h>  // for NULL
+
+#include "SDL_error.h"  // for SDL_GetError
+#include "SDL_log.h"    // for SDL_Log
+#include "SDL_video.h"  // for SDL_CreateWindow, SDL_DestroyWindow, SDL_WIND...
 
 static SDL_Window* window = NULL;
 static SDL_Renderer* renderer = NULL;

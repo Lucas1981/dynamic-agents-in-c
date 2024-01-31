@@ -1,7 +1,7 @@
 #ifndef GLOBAL_STATE_H
 #define GLOBAL_STATE_H
 
-#include <SDL.h>
+#include "SDL_stdinc.h"  // for Uint32
 
 #define LEFT_BORDER 200
 #define RIGHT_BORDER 600

@@ -1,8 +1,11 @@
 #include "load_spritesheet.h"
 
-#include <SDL.h>
-#include <SDL_image.h>
-#include <stdio.h>
+#include <SDL_image.h>  // for IMG_Load
+#include <stdio.h>      // for NULL, fprintf, stderr
+#include <stdlib.h>     // for free, malloc
+
+#include "SDL_error.h"    // for SDL_GetError
+#include "SDL_surface.h"  // for SDL_FreeSurface, SDL_Surface
 
 Spritesheet* load_spritesheet(const char* filename, SDL_Renderer* renderer,
                               int sprite_width, int sprite_height) {

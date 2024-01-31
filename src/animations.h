@@ -1,7 +1,7 @@
 #ifndef ANIMATIONS_H
 #define ANIMATIONS_H
 
-#include "frames.h"
+#include "SDL_stdinc.h"  // for Uint32
 
 // Forward declaration of Agent
 struct Agent;

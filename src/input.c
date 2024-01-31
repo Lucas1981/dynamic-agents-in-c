@@ -1,6 +1,7 @@
 #include "input.h"
 
-#include <SDL.h>
+#include "SDL_events.h"   // for SDL_Event, SDL_PollEvent, SDL_KEYDOWN, SDL_...
+#include "SDL_keycode.h"  // for SDLK_ESCAPE, SDLK_LEFT, SDLK_RETURN, SDLK_R...
 
 static KeyState key_state = {0, 0, 0, 0, 0};
 static void handle_input(SDL_Event event);

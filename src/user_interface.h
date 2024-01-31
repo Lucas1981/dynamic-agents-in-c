@@ -1,9 +1,6 @@
 #ifndef USER_INTERFACE_H
 #define USER_INTERFACE_H
 
-#include <SDL.h>
-#include <SDL_ttf.h>
-
 typedef enum {
   TEXT_ALIGN_LEFT,
   TEXT_ALIGN_CENTER,

@@ -1,9 +1,8 @@
 #ifndef AGENT_H
 #define AGENT_H
 
-#include <SDL.h>
-
-#include "animations.h"
+#include "SDL_stdinc.h"  // for Uint32
+#include "animations.h"  // for AnimationType
 
 typedef enum { PLAYER, ENEMY, BULLET } AgentType;
 typedef struct Hitbox {

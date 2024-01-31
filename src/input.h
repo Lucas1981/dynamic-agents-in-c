@@ -1,8 +1,6 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-#include <SDL.h>
-
 // Structure to hold key states
 typedef struct {
   int left;

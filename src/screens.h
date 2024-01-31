@@ -1,8 +1,6 @@
 #ifndef SCREENS_H
 #define SCREENS_H
 
-#include <SDL.h>
-
 typedef enum {
   TITLE_SCREEN,
   LEVEL_SCREEN,

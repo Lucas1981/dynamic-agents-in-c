@@ -1,7 +1,7 @@
 #ifndef CLOCK_H
 #define CLOCK_H
 
-#include <SDL.h>
+#include "SDL_stdinc.h"  // for Uint32
 
 Uint32 get_now(void);
 Uint32 get_prev(void);

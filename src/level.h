@@ -1,6 +1,8 @@
 #ifndef LEVEL_H
 #define LEVEL_H
 
+#include "SDL_stdinc.h"  // for Uint32
+
 #define FINAL_LEVEL 3
 
 typedef struct {

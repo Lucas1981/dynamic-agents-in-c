@@ -1,9 +1,7 @@
-#include <SDL.h>
-#include <stdio.h>
-
-#include "agent.h"
-#include "agent_pool.h"
-#include "clock.h"
+#include "SDL_stdinc.h"  // for Uint32
+#include "agent.h"       // for Hitbox, Agent
+#include "agent_pool.h"  // for deactivate_agent
+#include "clock.h"       // for get_elapsed_time, get_now
 
 #define SPEED 400
 #define WIDTH 640

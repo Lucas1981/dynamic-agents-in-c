@@ -1,9 +1,8 @@
 #ifndef ENTITY_POOL_H
 #define ENTITY_POOL_H
 
-#include <SDL.h>
-
-#include "agent.h"
+#include "agent.h"       // for Agent, AgentType, Hitbox, ProgressFunction
+#include "animations.h"  // for AnimationType
 
 void init_agent_pool(void);
 int add_agent(float x, float y, AgentType type, AnimationType animation_type,

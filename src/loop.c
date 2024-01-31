@@ -1,20 +1,18 @@
 #include "loop.h"
 
-#include <SDL.h>
-#include <stdlib.h>
+#include <stdio.h>   // for sprintf
+#include <stdlib.h>  // for rand
 
-#include "agent.h"
-#include "agent_pool.h"
-#include "bullet.h"
-#include "clock.h"
-#include "collision.h"
-#include "enemy.h"
-#include "global_state.h"
-#include "graphics.h"
-#include "screens.h"
-#include "sound.h"
-#include "sound_queue.h"
-#include "user_interface.h"
+#include "SDL_stdinc.h"      // for Uint32
+#include "agent.h"           // for Agent, ENEMY, Hitbox
+#include "agent_pool.h"      // for get_pool, get_pool_size, add_agent
+#include "animations.h"      // for draw_agent, ENEMY_WALKING
+#include "clock.h"           // for get_now
+#include "collision.h"       // for detect_collision
+#include "enemy.h"           // for get_enemy_hitbox, enemy_progress
+#include "global_state.h"    // for GlobalGameState, change_state, LEFT_BORDER
+#include "screens.h"         // for draw_screen, LEVEL_SCREEN
+#include "user_interface.h"  // for print_user_interface_with_outline, TEXT_...
 
 #define ENEMY_LINE_THRESHOLD 600 - 64
 

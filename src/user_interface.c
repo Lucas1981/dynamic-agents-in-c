@@ -1,6 +1,15 @@
 #include "user_interface.h"
 
-#include "graphics.h"
+#include <stdio.h>   // for fprintf, NULL, stderr
+#include <stdlib.h>  // for exit
+
+#include "SDL_error.h"    // for SDL_GetError
+#include "SDL_pixels.h"   // for SDL_Color
+#include "SDL_rect.h"     // for SDL_Rect
+#include "SDL_render.h"   // for SDL_Texture, SDL_DestroyTexture, SDL_QueryT...
+#include "SDL_surface.h"  // for SDL_FreeSurface, SDL_Surface
+#include "SDL_ttf.h"      // for TTF_SetFontOutline, TTF_GetError, TTF_Close...
+#include "graphics.h"     // for get_renderer
 
 // Assuming global variables for font and renderer
 static TTF_Font* font = NULL;

@@ -1,10 +1,9 @@
 #include "agent_pool.h"
 
-#include <SDL.h>
-#include <stdio.h>
-
-#include "agent.h"
-#include "clock.h"
+#include "SDL_stdinc.h"  // for Uint32
+#include "agent.h"       // for Agent, AgentType, Hitbox, ProgressFunction
+#include "animations.h"  // for AnimationType
+#include "clock.h"       // for get_now
 
 #define POOL_SIZE 100
 

@@ -1,10 +1,8 @@
-// sound.c
-
 #include "sound.h"
 
-#include <SDL.h>
-#include <SDL_mixer.h>
-#include <stdio.h>
+#include <SDL_mixer.h>  // for Mix_LoadWAV, MIX_MAX_VOLUME, Mix_CloseAudio
+#include <stdio.h>      // for printf, NULL
+#include <stdlib.h>     // for exit
 
 #define MAX_VOLUME MIX_MAX_VOLUME
 

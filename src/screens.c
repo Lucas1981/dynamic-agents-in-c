@@ -1,10 +1,12 @@
 #include "screens.h"
 
-#include <SDL.h>
-#include <SDL_image.h>
-#include <stdio.h>
+#include <SDL_image.h>  // for IMG_Load, IMG_GetError
+#include <stdio.h>      // for NULL, fprintf, stderr
 
-#include "graphics.h"
+#include "SDL_error.h"    // for SDL_GetError
+#include "SDL_render.h"   // for SDL_CreateTextureFromSurface, SDL_DestroyTe...
+#include "SDL_surface.h"  // for SDL_FreeSurface, SDL_Surface
+#include "graphics.h"     // for get_renderer
 
 // Array to hold screen textures
 static SDL_Texture* screens[NUM_SCREENS] = {NULL};
