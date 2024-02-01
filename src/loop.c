@@ -98,11 +98,9 @@ static void check_stage(const GlobalGameState *global_game_state) {
   Agent *pool = get_pool();
   for (int i = 0; i < get_pool_size(); i++) {
     Agent *agent = &pool[i];
-    if (agent->active) {
-      if (agent->y >= ENEMY_LINE_THRESHOLD) {
-        change_state(DEAD);
-        return;
-      }
+    if (agent->active && agent->y >= ENEMY_LINE_THRESHOLD) {
+      change_state(DEAD);
+      return;
     }
   }
 }

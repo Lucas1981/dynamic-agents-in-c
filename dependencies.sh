@@ -2,6 +2,7 @@
 
 # For development
 brew install entr;
+brew include-what-you-use;
 
 # For the product
 brew install sdl2;

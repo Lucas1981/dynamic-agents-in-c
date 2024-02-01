@@ -58,7 +58,7 @@ void run_game(void) {
     }
 
     render_graphics();
-    play_and_empty_queue();
+    play_and_empty_sound_queue();
   }
 
   cleanup_game();

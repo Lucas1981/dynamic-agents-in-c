@@ -15,7 +15,7 @@ void stage_sound(SoundEnum sound) {
   // Optionally handle the case where the queue is full
 }
 
-void play_and_empty_queue(void) {
+void play_and_empty_sound_queue(void) {
   for (int i = 0; i < sound_queue_count; ++i) {
     play_sound(sound_queue[i]);
   }
